@@ -12,6 +12,21 @@ namespace cis237assignment3
 {
     class UtilityDroid : Droid
     {
+        bool _toolbox;
+        bool _computerConnection;
+        bool _arm;
+        decimal _totalCost;
+
+        public decimal TotalCost
+        {
+            get { return _totalCost; }
+            set { _totalCost = value; }
+        }
+
+        public override void CalculateTotalCost()
+        {
+            throw new NotImplementedException();
+        }
 
 
     }

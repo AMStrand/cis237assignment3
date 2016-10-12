@@ -41,13 +41,13 @@ namespace cis237assignment3
             // Method to override the base ToString():
         public override string ToString()
         {
-            return base.ToString() + " " + _numberOfLanguages + " languages " + _totalCost.ToString("C");
+            return base.ToString() + " " + _numberOfLanguages + " language(s)";
         }
 
             // Method to calculate the total cost, using the parent's total cost plus the new features' costs:
         public override void CalculateTotalCost()
         {
-            _totalCost = base.TotalCost + (_numberOfLanguages * COST_PER_LANGUAGE);
+            this._totalCost = base.TotalCost + (_numberOfLanguages * COST_PER_LANGUAGE);
         }
 
     }

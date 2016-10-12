@@ -11,9 +11,9 @@ namespace cis237assignment3
 {
     class UserInterface
     {
-            // Instantiate classes to be used:
+            // Classes to be used:
         AddDroid addDroid;
-
+        DroidCollection droidCollection = new DroidCollection();
 
         public UserInterface()
         {
@@ -43,7 +43,7 @@ namespace cis237assignment3
                     switch (userChoice) {
                         case 1:
                             // If the user chooses to add a new droid, call that method:
-                            addDroid = new AddDroid();
+                            addDroid = new AddDroid(droidCollection);
                             break;
                         case 2:
                                 // If the user chooses to print the droid list, call that method:
@@ -74,8 +74,7 @@ namespace cis237assignment3
         private void PrintDroidList()
         {
             Console.WriteLine();
-            Console.WriteLine("Got to choice 2");
-            Console.WriteLine();
+            Console.WriteLine(droidCollection.GetAllDroidsString());
         }
 
     }

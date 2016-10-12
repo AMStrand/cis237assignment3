@@ -11,35 +11,66 @@ namespace cis237assignment3
 {
     class AddDroid
     {
-        // Instantiate classes to be used:
-        ProtocolDroid protocolDroid;
-        UtilityDroid utilityDroid;
-        JanitorDroid janitorDroid;
-        AstromechDroid astromechDroid;
-
-        public AddDroid()
+        public AddDroid(DroidCollection droidCollection)
         {
-            Console.WriteLine();
-            Console.WriteLine("Current options for model are Protocol, Utility, Janitor and Astromech.");
-            Console.Write("Please enter the model type (case sensitive): ");
-
-            string model = Console.ReadLine();
-
-            Console.WriteLine();
-            Console.WriteLine("Current options for material are Steel, Aluminum, and Plastic.");
-            Console.Write("Please enter the material type (case sensitive): ");
-
-            string materialType = Console.ReadLine();
-
-            Console.WriteLine();
-            Console.WriteLine("Current options for color are Red, Blue, and Gray.");
-            Console.Write("Please enter the color choice (case sensitive): ");
-
-            string colorChoice = Console.ReadLine();
-
-            switch (model)
+            string model = "";
+            string materialType = "";
+            string colorChoice = "";
+            
+            while (model == "")
             {
-                case "Protocol":
+                Console.WriteLine();
+                Console.WriteLine("Current options for model are Protocol, Utility, Janitor and Astromech.");
+                Console.Write("Please enter the model type: ");
+
+                model = Console.ReadLine();
+
+                if (!model.ToUpper().Equals("PROTOCOL") && !model.ToUpper().Equals("UTILITY") && 
+                    !model.ToUpper().Equals("JANITOR") && !model.ToUpper().Equals("ASTROMECH"))
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("That model was not valid.  Please spell the model the same as the option listed.");
+                    model = "";
+                }
+            }
+
+            while (materialType == "")
+            {
+                Console.WriteLine();
+                Console.WriteLine("Current options for material are Steel, Aluminum, and Plastic.");
+                Console.Write("Please enter the material type: ");
+
+                materialType = Console.ReadLine();
+
+                if (!materialType.ToUpper().Equals("STEEL") && !materialType.ToUpper().Equals("ALUMINUM") &&
+                    !materialType.ToUpper().Equals("PLASTIC"))
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("That material type was not valid.  Please spell the material the same as the option listed.");
+                    materialType = "";
+                }
+            }
+
+            while (colorChoice == "")
+            {
+                Console.WriteLine();
+                Console.WriteLine("Current options for color are Red, Blue, and Gray.");
+                Console.Write("Please enter the color choice (case sensitive): ");
+
+                colorChoice = Console.ReadLine();
+
+                if (!colorChoice.ToUpper().Equals("RED") && !colorChoice.ToUpper().Equals("BLUE") &&
+                    !colorChoice.ToUpper().Equals("GRAY"))
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("That color was not valid.  Please spell the color name the same as the option listed.");
+                    colorChoice = "";
+                }
+            }
+
+            switch (model.ToUpper())
+            {
+                case "PROTOCOL":
                         // Declare a variable to hold the # of languages and initialize to -1 for error checking:
                     int numberOfLanguages = -1;
                         // While the # of languages is less than 0 (an invalid option):
@@ -54,7 +85,9 @@ namespace cis237assignment3
                         if (Int32.TryParse(Console.ReadLine(), out numberOfLanguages) && numberOfLanguages >= 0)
                         {
                                 // Create a new Protocol Droid based on the specifications given:
-                            protocolDroid = new ProtocolDroid(model, materialType, colorChoice, numberOfLanguages);
+                                // To make sure that the pricing is completed correctly, put in the model name directly, 
+                                // and make lowercase and remove spacing from the material and color:
+                            droidCollection.add("Protocol", materialType.Trim().ToLower(), colorChoice.Trim().ToLower(), numberOfLanguages);
                             Console.WriteLine();
                             Console.WriteLine("Droid successfully entered!");
                             Console.WriteLine();
@@ -68,11 +101,11 @@ namespace cis237assignment3
                     }
 
                     break;
-                case "Utility":
+                case "UTILITY":
                     break;
-                case "Janitor":
+                case "JANITOR":
                     break;
-                case "Astromech":
+                case "ASTROMECH":
                     break;
                 default:
                     Console.WriteLine("You did not enter a valid model.");

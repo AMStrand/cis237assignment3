@@ -12,6 +12,10 @@ namespace cis237assignment3
     class JanitorDroid : UtilityDroid
     {
 
+        public override void CalculateTotalCost()
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

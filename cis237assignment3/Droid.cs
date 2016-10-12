@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace cis237assignment3
 {
-    class Droid : IDroid
+    abstract class Droid : IDroid
     {
             // Backing field declarations:
         private string _model;
@@ -22,8 +22,8 @@ namespace cis237assignment3
             // Properties:
         public decimal TotalCost
         {
-            get { return _totalCost; }
-            set { _totalCost = value; }
+            get { return _baseCost; }
+            set { _baseCost = value; }
         }
 
             // Empty constructor:
@@ -73,13 +73,13 @@ namespace cis237assignment3
                 // Add to base cost depending on material:
             switch (_material)
             {
-                case "Steel":
+                case "steel":
                     _baseCost += 500m;
                     break;
-                case "Aluminum":
+                case "aluminum":
                     _baseCost += 400m;
                     break;
-                case "Plastic":
+                case "plastic":
                     _baseCost += 300m;
                     break;
             }
@@ -87,22 +87,19 @@ namespace cis237assignment3
                 // Add to base cost depending on color:
             switch (_color)
             {
-                case "Red":
+                case "red":
                     _baseCost += 150m;
                     break;
-                case "Blue":
+                case "blue":
                     _baseCost += 100m;
                     break;
-                case "Gray":
+                case "gray":
                     _baseCost += 50m;
                     break;
             }
         }
 
-            // Method to calculate the total cost, which at this level is just the base cost:
-        public virtual void CalculateTotalCost()
-        {
-            _totalCost = _baseCost;
-        }
+        // Abstract method for calculating the total cost:
+        public abstract void CalculateTotalCost();
     }
 }

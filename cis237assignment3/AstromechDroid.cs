@@ -12,6 +12,10 @@ namespace cis237assignment3
     class AstromechDroid : UtilityDroid
     {
 
+        public override void CalculateTotalCost()
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

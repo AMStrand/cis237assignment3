@@ -44,6 +44,7 @@
     <Compile Include="AddDroid.cs" />
     <Compile Include="AstromechDroid.cs" />
     <Compile Include="Droid.cs" />
+    <Compile Include="DroidCollection.cs" />
     <Compile Include="IDroid.cs" />
     <Compile Include="JanitorDroid.cs" />
     <Compile Include="Program.cs" />
