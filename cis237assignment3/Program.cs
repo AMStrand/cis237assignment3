@@ -16,11 +16,8 @@ namespace cis237assignment3
     {
         static void Main(string[] args)
         {
+                // Call the user interface class to begin the loop to interact with the user:
             UserInterface userInterface = new UserInterface();
-
-
-
-
         }
     }
 }

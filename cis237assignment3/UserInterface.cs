@@ -15,6 +15,7 @@ namespace cis237assignment3
         AddDroid addDroid;
         DroidCollection droidCollection = new DroidCollection();
 
+            // Empty constructor:
         public UserInterface()
         {
                 // Call the method that handles interactions with the user:
@@ -74,6 +75,7 @@ namespace cis237assignment3
         private void PrintDroidList()
         {
             Console.WriteLine();
+                // Get the output string from the droidCollection class's method:
             Console.WriteLine(droidCollection.GetAllDroidsString());
         }
 

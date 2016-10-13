@@ -1,6 +1,7 @@
 ﻿// Alyssa Strand
 // The Droid class is built on the IDroid interface, and it is also the class upon which
 // all the different droid types are based.  It contains the most basic droid information.
+// It is abstract as instances of it cannot be created, as it does not contain enough info.
 
 using System;
 using System.Collections.Generic;
@@ -66,7 +67,7 @@ namespace cis237assignment3
                     _baseCost += 850m;
                     break;
                 case "Astromech":
-                    _baseCost += 1000m;
+                    _baseCost += 1200m;
                     break;
             }
 

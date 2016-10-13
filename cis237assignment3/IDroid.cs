@@ -12,8 +12,10 @@ namespace cis237assignment3
 {
     interface IDroid
     {
+            // Require all classes to have a CalculateTotalCost method:
         void CalculateTotalCost();
 
+            // Require all classes to have a TotalCost property:
         decimal TotalCost { get; set; }
     }
 }
